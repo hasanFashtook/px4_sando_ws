@@ -1,0 +1,53 @@
+# Configuration Parameters for px4_sando_bridge
+
+px4_sando_bridge_node:
+  ros__parameters:
+    # Namespace and Frame IDs
+    drone_namespace: "NX01"
+    world_frame_id: "world"
+    body_frame_id: "base_link"
+    livox_frame_id: "livox_frame"
+
+    # Rates & Timing
+    heartbeat_rate_hz: 20.0
+    setpoint_stream_rate_hz: 20.0
+    telemetry_rate_hz: 50.0
+    watchdog_timeout_ms: 1000
+    offboard_warmup_duration_sec: 1.0
+
+    # Coordinate Mapping
+    enable_enu_ned_conversion: true
+
+    # Safety Bounds
+    max_horizontal_velocity_m_s: 3.0
+    max_vertical_velocity_m_s: 1.5
+    max_acceleration_m_s2: 5.0
+    max_yaw_rate_rad_s: 1.0
+    geofence_min_z_m: 0.2
+    geofence_max_z_m: 10.0
+
+    # Auto Flight Management
+    auto_takeoff: true
+    takeoff_altitude: 2.5
+    auto_arm_and_offboard: true
+
+    # Feedforward Control Mode (Position + Velocity + Acceleration)
+    enable_acceleration_feedforward: true
+    enable_yawspeed_feedforward: false
+
+    # Yaw Control Mode:
+    # "none"   - Do not send desired yaw to PX4 (sets yaw to NaN; PX4 maintains current heading without rotating)
+    # "zero"   - Send fixed yaw = 0.0 to PX4
+    # "follow" - Follow the planned yaw from SANDO
+    yaw_mode: "none"
+    fixed_yaw_rad: 0.0
+
+    # Desired Setpoint Visualization Marker in RViz2
+    publish_setpoint_marker: true
+    setpoint_marker_color_rgb: [0.0, 0.8, 1.0]  # Cyan
+    setpoint_marker_scale: 0.35
+
+    # Drone Velocity Text Marker in RViz2 (shows v_actual and v_commanded)
+    publish_velocity_text: true
+    velocity_text_offset_z: 0.65
+    velocity_text_scale: 0.35
