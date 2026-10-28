@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+    <model name="willowgarage">
+        <static>true</static>
+        <pose>-20 -20 0 0 0 0</pose>
+        <link name="walls">
+            <collision name="collision">
+                <geometry>
+                    <mesh>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/willow garage/3/files/meshes/willowgarage_collision.dae</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="visual">
+                <geometry>
+                    <mesh>
+                        <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/willow garage/3/files/meshes/willowgarage_visual.dae</uri>
+                    </mesh>
+                </geometry>
+                <cast_shadows>false</cast_shadows>
+            </visual>
+        </link>
+    </model>
+</sdf>
